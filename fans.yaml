@@ -2,8 +2,12 @@
 # Xiaomi Mi Air Purifier 2H #
 #     del Soggiorno         #
 #                           #
-# credits: @MickL           #
-# (modified by me)          #
+# credits:                  #
+# sensors, switches &       #
+# inputs by @MickL          #
+#                           #
+# sensor 'filter hours used'#
+# created by me             #
 #                           #
 #############################
 fan:
