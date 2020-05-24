@@ -1,0 +1,307 @@
+elements:
+  - entity: sensor.xiaomi_airpurifier_filter_hours_used
+    prefix: 'Used: '
+    style:
+      background-color: 'rgba(0, 0, 0,.0)'
+      border-color: 'rgb(34, 154, 210,.0)'
+      border-left-style: solid
+      color: white
+      font-size: 100%
+      font-weight: bold
+      left: 1.5%
+      opacity: 1
+      pointer-events: none
+      top: 5%
+      transform: 'translate(0%,-50%)'
+    type: state-label
+  - entity: sensor.xiaomi_airpurifier_filter_remaining
+    prefix: 'Remains: '
+    style:
+      background-color: 'rgba(0, 0, 0,.0)'
+      border-color: 'rgb(34, 154, 210,.0)'
+      border-left-style: solid
+      color: white
+      font-size: 100%
+      font-weight: bold
+      left: 1.5%
+      opacity: 1
+      pointer-events: none
+      top: 10%
+      transform: 'translate(0%,-50%)'
+    type: state-label
+  - icon: 'mdi:water-percent'
+    style:
+      '--iron-icon-height': 20px
+      '--iron-icon-width': 20px
+      color: white
+      left: 8%
+      position: absolute
+      top: 17%
+    tap_action: none
+    type: icon
+  - entity: sensor.xiaomi_airpurifier_humidity
+    fill: 'rgba(0,0,0,0.3)'
+    font_style:
+      color: white
+    gradient: true
+    max: 100
+    min: 0
+    show_card: null
+    stroke_width: 10
+    style:
+      height: 17%
+      left: 15%
+      top: 25%
+      width: 17%
+    type: 'custom:circle-sensor-card'
+    units: '%'
+  - icon: 'mdi:thermometer'
+    style:
+      '--iron-icon-height': 20px
+      '--iron-icon-width': 20px
+      color: white
+      left: 7.5%
+      position: absolute
+      top: 37%
+    tap_action: none
+    type: icon
+  - entity: sensor.xiaomi_airpurifier_temp
+    fill: 'rgba(0,0,0,0.3)'
+    font_style:
+      color: white
+    gradient: true
+    max: 50
+    min: 0
+    show_card: false
+    stroke_width: 10
+    style:
+      height: 17%
+      left: 15%
+      top: 45%
+      width: 17%
+    type: 'custom:circle-sensor-card'
+    units: °C
+  - icon: 'mdi:air-filter'
+    style:
+      '--iron-icon-height': 17px
+      '--iron-icon-width': 17px
+      color: white
+      left: 8%
+      top: 56%
+    tap_action: none
+    type: icon
+  - entity: sensor.xiaomi_airpurifier_filter_remaining
+    fill: 'rgba(0,0,0,0.3)'
+    font_style:
+      color: white
+    gradient: true
+    max: 100
+    min: 0
+    show_card: false
+    stroke_width: 10
+    style:
+      height: 17%
+      left: 15%
+      top: 65%
+      width: 17%
+    type: 'custom:circle-sensor-card'
+    units: ''
+  - entity: sensor.xiaomi_airpurifier_air_quality_pm25
+    fill: 'rgba(0,0,0,0.3)'
+    font_style:
+      color: white
+    gradient: true
+    max: 600
+    min: 0
+    show_card: false
+    stroke_width: 10
+    style:
+      height: 13%
+      left: 50%
+      top: 18.5%
+      width: 13%
+    type: 'custom:circle-sensor-card'
+    units: p
+  - icon: 'mdi:speedometer'
+    style:
+      '--iron-icon-height': 17px
+      '--iron-icon-width': 17px
+      color: white
+      left: 8%
+      top: 76%
+    tap_action: none
+    type: icon
+  - entity: sensor.xiaomi_airpurifier_speed
+    fill: 'rgba(0,0,0,0.3)'
+    font_style:
+      color: white
+    gradient: true
+    max: 1700
+    min: 0
+    show_card: false
+    stroke_width: 10
+    style:
+      height: 17%
+      left: 15%
+      top: 85%
+      width: 17%
+    type: 'custom:circle-sensor-card'
+    units: ''
+  - entity: input_select.xiaomi_airpurifier_mode
+    max: 2000
+    min: 0
+    prefix: 'Mode: '
+    style:
+      background-color: 'rgba(0, 0, 0,.0)'
+      border-color: 'rgb(34, 154, 210,.0)'
+      border-left-style: solid
+      color: white
+      font-size: 100%
+      font-weight: bold
+      opacity: 1
+      pointer-events: none
+      right: 1%
+      top: 1%
+      transform: none
+    type: state-label
+  - entity: fan.xiaomi_miio_device
+    style:
+      '--iron-icon-height': 22px
+      '--iron-icon-width': 22px
+      '--paper-item-icon-active-color': dodgerblue
+      '--paper-item-icon-color': black
+      margin-right: '-10%'
+      right: 19%
+      top: 17%
+    tap_action:
+      action: call-service
+      service: fan.toggle
+      service_data:
+        entity_id: fan.xiaomi_miio_device
+    type: state-icon
+  - icon: 'mdi:brightness-auto'
+    style:
+      '--iron-icon-height': 22px
+      '--iron-icon-width': 22px
+      color: white
+      right: 4%
+      top: 17%
+    tap_action:
+      action: call-service
+      service: xiaomi_airpurifier_mode
+      service_data:
+        entity_id: fan.xiaomi_miio_device
+        speed: Auto
+    type: icon
+  - icon: 'mdi:power-sleep'
+    style:
+      '--iron-icon-height': 22px
+      '--iron-icon-width': 22px
+      color: white
+      margin-right: '-10%'
+      right: 22%
+      top: 34%
+    tap_action:
+      action: call-service
+      service: xiaomi_airpurifier_mode
+      service_data:
+        entity_id: fan.xiaomi_miio_device
+        speed: Silent
+    type: icon
+  - icon: 'mdi:account-heart'
+    style:
+      '--iron-icon-height': 22px
+      '--iron-icon-width': 22px
+      color: white
+      right: 4%
+      top: 34%
+    tap_action:
+      action: call-service
+      service: xiaomi_airpurifier_mode
+      service_data:
+        entity_id: fan.xiaomi_miio_device
+        speed: Favorite
+    type: icon
+  - icon: 'mdi:monitor'
+    style:
+      '--iron-icon-height': 22px
+      '--iron-icon-width': 22px
+      color: white
+      margin-right: '-10%'
+      right: 22%
+      top: 51%
+    tap_action:
+      action: call-service
+      service: xiaomi_miio.fan_set_led_on
+      service_data:
+        entity_id: fan.xiaomi_miio_device
+    type: icon
+  - icon: 'mdi:monitor-off'
+    style:
+      '--iron-icon-height': 22px
+      '--iron-icon-width': 22px
+      color: white
+      right: 3%
+      top: 51%
+    tap_action:
+      action: call-service
+      service: xiaomi_miio.fan_set_led_off
+      service_data:
+        entity_id: fan.xiaomi_miio_device
+    type: icon
+  - icon: 'mdi:bell'
+    style:
+      '--iron-icon-height': 22px
+      '--iron-icon-width': 22px
+      color: white
+      margin-right: '-10%'
+      right: 22%
+      top: 68%
+    tap_action:
+      action: call-service
+      service: xiaomi_miio.fan_set_buzzer_on
+      service_data:
+        entity_id: fan.xiaomi_miio_device
+    type: icon
+  - icon: 'mdi:lock-alert'
+    style:
+      '--iron-icon-height': 22px
+      '--iron-icon-width': 22px
+      color: white
+      margin-right: '-10%'
+      right: 22%
+      top: 87%
+    tap_action:
+      action: call-service
+      service: xiaomi_miio.fan_set_child_lock_on
+      service_data:
+        entity_id: fan.xiaomi_miio_device
+    type: icon
+  - icon: 'mdi:bell-off-outline'
+    style:
+      '--iron-icon-height': 22px
+      '--iron-icon-width': 22px
+      color: white
+      right: 3%
+      top: 68%
+    tap_action:
+      action: call-service
+      service: xiaomi_miio.fan_set_buzzer_off
+      service_data:
+        entity_id: fan.xiaomi_miio_device
+    type: icon
+  - icon: 'mdi:lock-open-outline'
+    style:
+      '--iron-icon-height': 22px
+      '--iron-icon-width': 22px
+      color: white
+      right: 3%
+      top: 87%
+    tap_action:
+      action: call-service
+      service: xiaomi_miio.fan_set_child_lock_off
+      service_data:
+        entity_id: fan.xiaomi_miio_device
+    type: icon
+image: /local/purifier2s.png
+type: picture-elements
