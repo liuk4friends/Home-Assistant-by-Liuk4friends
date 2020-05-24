@@ -1,3 +1,14 @@
+#############################
+# Xiaomi Mi Air Purifier 2H #
+#     del Soggiorno         #
+#                           #
+# credits:                  #
+# automations by @MickL     #
+#                           #
+# 'pm25 above 70' automation#
+# created by me             #
+#                           #
+#############################
 - id: purifier_mode_change
   alias: Air Purifier (mode change)
   trigger:
@@ -39,3 +50,21 @@
       value: '{{ states.fan.xiaomi_miio_device.attributes.favorite_level }}'
     entity_id: input_number.xiaomi_airpurifier_favorite_level
     service: input_number.set_value
+#################
+# pm25 above 70 #
+#################
+- id: '1585256200784'
+  alias: Air Purifier - Migliora la qualità dell'aria
+  description: il valore pm25 supera i 70
+  trigger:
+  - above: '70'
+    entity_id: sensor.xiaomi_airpurifier_air_quality_pm25
+    platform: numeric_state
+  condition: []
+  action:
+  - data:
+      message: Ho acceso il purificatore per areare il soggiorno
+    service: notify.telegram
+  - data: {}
+    entity_id: fan.xiaomi_miio_device
+    service: fan.turn_on
