@@ -1,3 +1,16 @@
+#############################
+# Xiaomi Mi Air Purifier 2H #
+#                           #
+# credits:                  #
+# lovelace card & background#
+# picture by                #
+# @gh0s7 Hristo Atanasov    #
+#                           #
+# sensor modified according #
+# to my configuration       #
+# (background transparency  #
+#  by me)                   #
+#############################
 elements:
   - entity: sensor.xiaomi_airpurifier_filter_hours_used
     prefix: 'Used: '
