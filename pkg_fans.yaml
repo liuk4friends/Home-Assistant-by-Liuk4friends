@@ -113,9 +113,17 @@ input_number:
     step: 1
     icon: "mdi:weather-windy"
 #
-##########################
-# notifiche air purifier #
-##########################
+#############################
+# Xiaomi Mi Air Purifier 2H #
+#     (automations)        #
+#                           #
+# credits:                  #
+# automations by @MickL     #
+#                           #
+# 'pm25 above 70' automation#
+# created by me             #
+#                           #
+#############################
 #
 automation:
 - id: '1585256200784'
